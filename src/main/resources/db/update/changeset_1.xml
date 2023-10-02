@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-1.0.xml"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- Create table Product -->
+    <changeSet author="R.Prystynskyi" id="createTableProduct">
+        <createTable tableName="product">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints  nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="cost" type="FLOAT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="readFromFile" author="R.Prystynskyi">
+        <loadData tableName="product"
+                  file="db/update/product.csv"
+                  separator="," >
+            <column header="name" name="name" type="STRING"/>
+            <column header="cost" name="cost" type="FLOAT"/>
+        </loadData>
+    </changeSet>
+
+    <!-- Create table OrderTable -->
+    <changeSet author="R.Prystynskyi" id="createTableOrderTable">
+        <createTable tableName="Orders">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints  nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="date" type="TIMESTAMP"/>
+            <column name="cost" type="FLOAT"/>
+        </createTable>
+    </changeSet>
+    <!-- Create table OrderProduct -->
+    <changeSet author="R.Prystynskyi" id="createTableOrderProduct">
+        <createTable tableName="OrderProduct">
+            <column name="order_id" type="INT"/>
+            <column name="product_id" type="INT"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
