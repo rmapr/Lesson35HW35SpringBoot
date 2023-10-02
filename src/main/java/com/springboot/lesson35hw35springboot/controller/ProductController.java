@@ -39,9 +39,4 @@ public class ProductController {
         logger.info("ProductController - Run method update product...");
         return productService.updateProduct(product);
     }
-//    @PutMapping("/update")
-//    public Order updateOrderController(@RequestBody Order order) {
-//        logger.info("OrderController - call method update order...");
-//        return orderService.updateOrder(order);
-//    }
 }

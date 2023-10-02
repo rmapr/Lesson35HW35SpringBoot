@@ -2,7 +2,6 @@ package com.springboot.lesson35hw35springboot.controller;
 
 import com.springboot.lesson35hw35springboot.dto.OrderDto;
 import com.springboot.lesson35hw35springboot.entity.Order;
-import com.springboot.lesson35hw35springboot.entity.Product;
 import com.springboot.lesson35hw35springboot.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
